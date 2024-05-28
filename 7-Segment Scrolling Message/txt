@@ -1,0 +1,16 @@
+Breakdown of code 
+
+Module Declaration and Inputs/Outputs: You've declared a module named scrolling_name with inputs clock and reset, and outputs a through g, dp, and an.
+
+Counter for Timing (Ticker): You've defined a 29-bit register ticker to count up to 50,000,000, effectively creating a 1-second delay. This counter increments on every clock cycle and resets when it reaches the desired count.
+
+Click Counter: Another counter named clickcount is used to keep track of seconds elapsed. It increments every time ticker reaches 50,000,000 and resets after 8 counts, allowing you to cycle through the text.
+
+Scrolling Logic: Based on the value of clickcount, you assign specific values to first, second, third, and fourth registers, which represent the characters to be displayed on the 7-segment display. Each case corresponds to a different segment of the scrolling text.
+
+Multiplexing Logic: You've implemented multiplexing logic to cycle through the segments of the display. Depending on the value of count, different segments are activated, allowing each character to be displayed sequentially.
+
+Segment Mapping: The sseg_temp register holds the segment values for each character. You've defined segment patterns for each character (H, E, L, O, T, R), as well as a default pattern for blank spaces.
+
+Assigning Segment Outputs: Finally, you assign the segment values to the output signals a through g based on sseg_temp, effectively displaying the characters on the 7-segment display.
+

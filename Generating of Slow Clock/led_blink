@@ -1,0 +1,22 @@
+`timescale 1ns / 1ps
+module led_blink(
+    input clk_in,
+    output led
+     );
+     reg [25:0] count;
+     reg clk_out;
+     
+     always @ (posedge clk_in)
+     begin
+     count<=count+1;
+     if (count==50_000_000)
+        begin
+
+        count<=0;
+
+        clk_out = ~clk_out;
+
+end
+end    
+assign led= clk_out;
+endmodule
